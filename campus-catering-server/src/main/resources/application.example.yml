@@ -1,0 +1,56 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: campus-catering-server
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/campus_catering?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: your_mysql_username
+    password: your_mysql_password
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      database: 0
+      timeout: 3000ms
+  jackson:
+    default-property-inclusion: non_null
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com.zhinengpt.campuscatering: info
+
+app:
+  order:
+    unpaid-timeout-minutes: 15
+    merchant-accept-timeout-minutes: 20
+    delivery-timeout-minutes: 60
+    alert-dedup-minutes: 120
+    urge-cooldown-seconds: 120
+  seckill:
+    queue-capacity: 20000
+    result-ttl-minutes: 30
+    fail-fast-on-init: false
+  statistics:
+    daily-job-cron: 0 10 0 * * *
+  cache:
+    prewarm-cron: 0 */30 * * * *
+    prewarm-store-limit: 20
+  security:
+    jwt:
+      secret: replace-with-your-own-long-jwt-secret
+      expiration-hours: 24
+    api-sign:
+      enabled: false
+      api-key: your-api-key
+      api-secret: your-api-secret
+      timestamp-window-seconds: 300
+  storage:
+    upload-dir: uploads

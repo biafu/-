@@ -1,0 +1,16 @@
+*.log
+.idea/
+.vscode/
+target/
+**/target/
+*.iml
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+uploads/
+.env
+.env.*
+**/.env
+**/.env.*
+campus-catering-server/src/main/resources/application.yml

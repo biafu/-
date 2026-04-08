@@ -1,0 +1,28 @@
+{
+  "name": "campus-catering-web",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "node --input-type=module -e \"const nodeCrypto = await import('node:crypto'); const getRandomValues = nodeCrypto.webcrypto.getRandomValues.bind(nodeCrypto.webcrypto); nodeCrypto.default.getRandomValues = getRandomValues; globalThis.crypto = nodeCrypto.webcrypto; process.argv=['node','vitest','run',...process.argv.slice(1)]; await import('./node_modules/vitest/vitest.mjs')\""
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
+    "@fontsource/inter": "^5.0.17",
+    "element-plus": "^2.7.8",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "@vitejs/plugin-vue": "^4.6.2",
+    "typescript": "^5.4.5",
+    "vite": "^4.5.5",
+    "vitest": "^0.34.6",
+    "vue-tsc": "^2.0.19"
+  }
+}
